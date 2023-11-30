@@ -1,13 +1,12 @@
-import express from "express";
+import express from 'express';
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
+import userRoutes from './routes/user.route.js';
 
 const app = express();
 
-app.get("/", (request, response) => {
-  console.log(request);
-  return response.status(608).send("Welcome to my domain bruh");
-});
+app.use("/api/user", userRoutes);
+
 
 // //GET DATABASE_URL variable from the .env file
 // const uri = process.env.MONGO;
@@ -23,3 +22,5 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+
