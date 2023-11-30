@@ -5,10 +5,12 @@ import Lokasi from "./pages/Lokasi";
 import Rsvp from "./pages/Rsvp";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
     <BrowserRouter>
+    <Footer />
       <Routes>
         <Route path="/" element={<Utama />} />
         <Route path="/aturcara" element={<Aturcara />} />
