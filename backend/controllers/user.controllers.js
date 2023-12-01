@@ -1,4 +1,6 @@
-export const test = (req, res) =>{
-    console.log(request);
-    return response.status(608).send("Welcome to my domain bruh");
+export const test = (request, response) => {
+
+        console.log(request);
+        return response.status(212).send('Welcome to my domain bruh');
+    
 };

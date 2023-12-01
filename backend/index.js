@@ -1,13 +1,14 @@
-import express from 'express';
+import express, { request, response } from 'express';
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
-import userRoutes from './routes/user.route.js';
+import userRouter from './routes/user.route.js';
+
 
 const app = express();
 
-app.use("/api/user", userRoutes);
 
 
+app.use("/api/user", userRouter);
 // //GET DATABASE_URL variable from the .env file
 // const uri = process.env.MONGO;
 
@@ -22,5 +23,6 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
 
 
