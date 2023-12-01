@@ -13,6 +13,16 @@ app.use(express.json());
 
 app.use("/api/user", userRouter);
 app.use('/api/auth', authRouter);
+
+app.use((err, req, res, next)=>{
+const statusCode = err.statuseCode || 501;
+const message = err.message || 'Internal Server Error';
+return res.status(statusCode).json({
+    succes: false,
+    statusCode,
+    message,
+});
+});
 // //GET DATABASE_URL variable from the .env file
 // const uri = process.env.MONGO;
 
