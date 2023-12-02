@@ -7,6 +7,19 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+mongoose
+  .connect(process.env.MONGO)
+  .then(() => {
+    console.log("App connected to database");
+    app.listen(PORT, () => {
+      console.log(`App is listening to port: ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+
 
 const app = express();
 
@@ -29,17 +42,6 @@ return res.status(statusCode).json({
 // //GET DATABASE_URL variable from the .env file
 // const uri = process.env.MONGO;
 
-mongoose
-  .connect(mongoDBURL)
-  .then(() => {
-    console.log("App connected to database");
-    app.listen(PORT, () => {
-      console.log(`App is listening to port: ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-  });
 
 
 
